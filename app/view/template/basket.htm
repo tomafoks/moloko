@@ -11,46 +11,52 @@
             <div class="breads-item"><span class="breads-item-current cs-t-1">Корзина</span></div>
         </div>
         <div class="staticpage-content">
-
-            <table class="">
-                <tr role="row">
-                    <th class="sorting_asc">Фото</th>
-                    <th class="sorting_asc">Название</th>
-                    <th class="sorting_asc">Описание</th>
-                    <th class="sorting_asc">Цена</th>
-                    <th class="sorting_asc">Кол-во на складе</th>
-                    <th class="sorting_asc">Кол-во в корзине</th>
-                    <th class="sorting_asc">Изменить</th>
-                    <th class="sorting_asc">Удалить</th>
-                </tr>
-                <tr role="row" class="odd">
-                    <td class="dtr-control sorting_1"></td>
-                </tr>
-                <repeat group="{{ @basket }}" value="{{ @item }}">
-                    <repeat group="{{ @item }}" value="{{ @i }}">
-                        <tr>
-                            <th>{{ @i.imagepath }}</th>
-                            <th>{{ @i.name }}</th>
-                            <th>{{ @i.description }}</th>
-                            <th>{{ @i.price }}</th>
-                            <th>{{ @i.stockBalance }}</th>
-                            <form action="/basket/edit/{{ @i.id }}" method="post">
-                                <th>
-                                    <input type="number" name="quantity" id="" value="{{ @i.quantity }}">
-                                </th>
-                                <th>
-                                    <input type="submit" value="Изменить">
-                                </th>
-                            </form>
-                            <th>
-                                <form action="/basket/del/{{ @i.id }}" method="post">
-                                    <input type="submit" value="Удалить">
+            <form id="send">
+                <table class="">
+                    <tr role="row">
+                        <th class="sorting_asc">Фото</th>
+                        <th class="sorting_asc">Название</th>
+                        <th class="sorting_asc">Описание</th>
+                        <th class="sorting_asc">Цена</th>
+                        <th class="sorting_asc">Кол-во на складе</th>
+                        <th class="sorting_asc">Кол-во в корзине</th>
+                        <th class="sorting_asc">Изменить</th>
+                        <th class="sorting_asc">Удалить</th>
+                    </tr>
+                    <tr role="row" class="odd">
+                        <td class="dtr-control sorting_1"></td>
+                    </tr>
+                    <repeat group="{{ @basket }}" value="{{ @item }}">
+                        <repeat group="{{ @item }}" value="{{ @i }}">
+                            <tr>
+                                <th>{{ @i.imagepath }}</th>
+                                <th>{{ @i.name }}</th>
+                                <th>{{ @i.description }}</th>
+                                <th>{{ @i.price }}</th>
+                                <th>{{ @i.stockBalance }}</th>
+                                <form id="change_num">
+                                    <th>
+                                        <input type="number" name="quantity" id="" value="{{ @i.quantity }}">
+                                        <input hidden type="number" name="id" id="" value="{{ @i.id }}">
+                                    </th>
+                                    <th>
+                                        <input type="submit" value="Изменить">
+                                    </th>
                                 </form>
-                            </th>
-                        </tr>
+                                <th>
+                                    <form action="/basket/del/{{ @i.id }}" method="post">
+                                        <input type="submit" value="Удалить">
+                                    </form>
+                                </th>
+                            </tr>
+                        </repeat>
                     </repeat>
-                </repeat>
-            </table>
+                </table>
+                <br>
+                <div>
+                    <input type="submit" value="Оформть заказ">
+                </div>
+            </form>
             </br>
             <div>
                 <strong>Итого: {{ @sum }}</strong>

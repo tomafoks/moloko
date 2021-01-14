@@ -29,13 +29,14 @@ class BasketController extends Controller
 
     function edit()
     {
-        $id = $this->f3->get('PARAMS.id');
-        $quantity = $this->f3->get('POST.quantity');
-        $this->basket->load('idcatalog', $id);
-        $this->basket->set('quantity', $quantity);
-        $this->basket->save();
-        $this->basket->reset();
-        $this->f3->reroute('/basket');
+        echo 123123;
+        // $id = $this->f3->get('PARAMS.id');
+        // $quantity = $this->f3->get('POST.quantity');
+        // $this->basket->load('idcatalog', $id);
+        // $this->basket->set('quantity', $quantity);
+        // $this->basket->save();
+        // $this->basket->reset();
+        // $this->f3->reroute('/basket');
 
     }
 
