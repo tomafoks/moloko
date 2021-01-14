@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+  <meta charset="utf-8">
+  <meta name="format-detection" content="telePhone=no">
+  <title>Moloko</title>
+  <base />
+  <link rel="stylesheet" href="/app/view/style/css/styles.css" />
+  <link rel="stylesheet" href="/app/view/style/css/alldf00.css" />
+
+  <link rel="stylesheet" type="text/css" href="/app/view/style/css/main_without_designba2b.css" />
+</head>
+
+<body class="cs-t-1 text-floating toolbar-bottom-enabled">
+  <div class="stretch-container">
+    <header class="site-head">
+      <div class="toolbar-top">
+        <div class="container container-fluid">
+          <aside class="row between-xs">
+            <div class="container_phone">
+              <!-- ваш номер телефон -->
+            </div>
+
+            <check if="{{ @SESSION.user===null }}">
+              <true>
+                <div class="toolbar-top-item">
+                  <a class="cs-l-1 toolbar-top-link-alt toolbar-top-link-alt-bold toolbar-top-link-alt-splitter ico-user-male-before"
+                    href="/login">Войти</a>
+                  <a class="cs-l-1 toolbar-top-link-alt" href="/registration/0">Регистрация</a>
+                  <a class="cs-l-1 toolbar-top-link-alt" href="/admin">Администрирование</a>
+                </div>
+              </true>
+              <false>
+                <div class="toolbar-top-item">
+                  <a class="cs-l-1 toolbar-top-link-alt toolbar-top-link-alt-bold toolbar-top-link-alt-splitter"
+                    href="#">{{ @SESSION.user }}</a>
+                  <a class="cs-l-1 toolbar-top-link-alt toolbar-top-link-alt-bold toolbar-top-link-alt-splitter ico-user-male-before"
+                    href="/logout">Выйти</a>
+                </div>
+              </false>
+            </check>
+            
+          </aside>
+        </div>
+      </div>
+      <div class="site-head-inner container container-fluid">
+        <div class="row middle-xs">
+          <div class="col-xs-3 site-head-phone-col">
+            <a href=/ class="site-head-logo-link logo-generator-link">
+              <div>
+                <logo-generator-preview class="logo-generator-preview">
+                  <img id="logo" src="/app/view/images/logo_20180219155119.png" alt="Moloko"
+                    class="site-head-logo-picture" />
+                </logo-generator-preview>
+              </div>
+            </a>
+          </div>
+          <div class="site-head-logo-block site-head-logo col-xs">
+            <ul class="menu-header clear">
+              <li class="menu-header-item">
+                <a class="cs-l-2 menu-header-link" href="/about">О магазине</a>
+              </li>
+              <li class="menu-header-item">
+                <a class="cs-l-2 menu-header-link" href="/payment">Оплата</a>
+              </li>
+              <li class="menu-header-item">
+                <a class="cs-l-2 menu-header-link" href="/shipping">Доставка</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-3 site-head-menu-col">
+            <div class="static-block">
+              <div style="width:100%; text-align:right;">
+                <span style="font-size: 12px;font-family: Neris Thin;">
+                  БЕЗ ВЫХОДНЫХ
+                </span>
+              </div>
+            </div>
+            <div class="site-head-phone">8 951 000 00 00</div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="stretch-middle site-body">
+      <div class="container container-fluid site-body-inner js-site-body-inner cs-bg-7">
+        <!-- Меню -->
+        <div id="menu-custom" class="rel big-z menu-block default">
+          <div class="site-body-aside">
+            <div class="site-menu-row cs-g-1 js-menu-general-block-orientation cs-bg-12">
+              <div class="container">
+                <div class="row">
+                  <div class="menu-general cs-bg-i-12 harmonica harmonica-initialized col-xs-3">
+                    <nav class="menu-dropdown menu-dropdown-modern menu-dropdown-compact">
+                      <a class="menu-dropdown-root ico-menu-before ico-down-open-big-after" href="/catalog">
+                        <span class="menu-dropdown-root-text">Все товары</span>
+                      </a>
+                      <div class="menu-dropdown-list cs-br-1">
+                        <div class="menu-dropdown-item cs-br-1 submenu-modern">
+                          <div class="menu-dropdown-link-wrap cs-bg-i-7 ">
+                            <a class="menu-dropdown-link" href="/catalog/milk">
+                              <span class="menu-dropdown-link-text text-floating">
+                                Молочные продукты
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="menu-dropdown-item cs-br-1 submenu-modern">
+                          <div class="menu-dropdown-link-wrap cs-bg-i-7 ">
+                            <a class="menu-dropdown-link" href="/catalog/meet">
+                              <span class="menu-dropdown-link-text text-floating">
+                                Мясные продукты
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </nav>
+                  </div>
+                  <!-- Поиск -->
+                  <div class="col-xs-6 main-menu-search">
+                    <div class=" search-block-topmenu">
+                      <form name="searchHeaderForm" class="site-head-search-form">
+                        <div class="site-head-search-input-wrap">
+                          <div class="site-head-site-head-search">
+                            <input class="input-big site-head-search-input" type="search" autocomplete="off"
+                              placeholder="ПОИСК ТОВАРОВ" name="q" />
+                          </div>
+                        </div>
+                        <div class="site-head-search-btn-wrap">
+                          <div class="site-head-search-col">
+                            <a href="#" class="btn btn-big btn-expander site-head-search-btn" id="searchHeaderSubmit">
+                              <span class="icon-search-block ico-search-before cs-t-1"></span>
+                            </a>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- Поиск -->
+                  <!-- Корзина -->
+                  <div class="col-xs-3 main-menu-cart">
+                    <div class="site-head-cart">
+                      <div class="cart-mini" style="display:inline-block">
+                        <a href="/basket" class="cart-mini-main-link">
+                          <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                          <span class="cart-mini-link-text"> Корзина</span><br /> <span class="cart-mini-link-count">В
+                            корзине: {{ @basketCount }}</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Корзина -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Меню -->
+        <!-- основной контент -->

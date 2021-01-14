@@ -1,0 +1,124 @@
+<!-- основной контент -->
+<div class="row">
+  <div class="col-xs-3 site-body-aside">
+
+    <div class="breads cs-br-1" itemscope itemtype="">
+      <div class="breads-item icon-right-open-after cs-t-3">
+        <a href="/" class="breads-item-link cs-l-3">
+          <span>Главная</span>
+        </a>
+        —
+      </div>
+      <div class="breads-item icon-right-open-after cs-t-3">
+        <a href="/catalog" class="breads-item-link cs-l-3">
+          <span>Каталог</span>
+        </a>
+      </div>
+      <check if="{{ @var }}">
+        <true>
+          <div class="breads-item">
+            —
+            <span class="breads-item-current cs-t-1">{{@var}}</span>
+          </div>
+        </true>
+        <false></false>
+      </check>
+    </div>
+
+    <nav class="menu-dropdown menu-dropdown-modern menu-dropdown-expanded">
+      <div class="menu-dropdown-list cs-br-1">
+
+        <div class="menu-dropdown-item cs-br-1 submenu-modern " data-submenu-parent>
+          <div class="menu-dropdown-link-wrap cs-bg-i-7 ">
+            <a class="menu-dropdown-link" href="/catalog/milk">
+              <span class="menu-dropdown-link-text text-floating">Молочные продукты</span>
+            </a>
+          </div>
+        </div>
+        <div class="menu-dropdown-item cs-br-1 submenu-modern " data-submenu-parent>
+          <div class="menu-dropdown-link-wrap cs-bg-i-7 ">
+            <a class="menu-dropdown-link" href="/catalog/meet">
+              <span class="menu-dropdown-link-text text-floating">Мясные продукты</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="col-xs-9 site-body-main">
+    <!-- название категории -->
+    <div class="page-title-row catalog-title-row border-bottom-spliter cs-br-3 row">
+      <h1 class="catalog-title page-title cs-t-9">
+        {{ @title }}
+      </h1>
+    </div>
+    <!-- название категории -->
+
+    <div class="row products-view products-view-table">
+
+      <!-- товар -->
+      <!-- Цикл отображения товаров -->
+      <repeat group="{{ @products }}" value="{{ @prod }}">
+
+        <repeat group="{{ @prod }}" value="{{ @item }}">
+
+          <div class="products-view-block cs-br-1 js-products-view-block">
+            <div class="products-view-item text-static cs-br-1 js-products-view-item">
+              <figure class="products-view-pictures" style="width: 354px;">
+                <a class="products-view-picture-link" href="/catalog/getcard/{{ @item.idcatalog }}">
+                  <img src="/app/view/images/products/{{@item.imagepath }}" title="asd" class="products-view-picture">
+                </a>
+              </figure>
+              <div class="products-view-info">
+                <div class="products-view-name products-view-name-default">
+                  <a href="/catalog/getcard/{{ @item.idcatalog }}" class="products-view-name-link"
+                    title="">{{ @item.nameitem }}</a>
+                </div>
+                <div class="products-view-meta products-view-tile-element-hidden">
+                  <div class="products-view-meta-item products-view-tile-element-hidden cs-br-1">колличесво на складе:
+                    {{ @item.quantity }}</div>
+                </div>
+                <div
+                  class="products-view-colors-empty products-view-list-element-hidden products-view-table-element-hidden"
+                  style="height: 11px"></div>
+              </div>
+
+              <!-- подпись продукта "акция" или "хит" -->
+              <!-- <div class="products-view-labels">
+                <div class="products-view-label"><span class="products-view-label-inner products-view-label-best"> ХИТ </span></div>
+              </div> -->
+              <!-- подпись продукта "акция" или "хит" -->
+
+              <div class="products-view-price-block products-view-price-inner">
+                <!-- Цена -->
+                <div class="products-view-price">
+                  <div class="price">
+                    <div class="price-current cs-t-1">
+                      <div class="price-number">{{ @item.priceitem }}</div>
+                      <div class="price-currency"> руб.</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Цена -->
+                <!-- кнопка корзина -->
+                <div class="products-view-buttons-cell">
+                  <form action="/basket/add/{{ @item.idcatalog }}" class="products-view-buttons" method="POST">
+                    <button type="submit" class="btn btn-buy products-view-buy">
+                      <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                    </button>
+                    <input type="number" name="quantity" id="input1" placeholder="кол-во товара">
+                  </form>
+                </div>
+                <!-- кнопка корзина -->
+              </div>
+            </div>
+          </div>
+        </repeat>
+      </repeat>
+      <!-- Цикл отображения товаров -->
+      <!-- товар -->
+    </div>
+  </div>
+</div>
+<!-- основной контент -->
