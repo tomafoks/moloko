@@ -46,11 +46,11 @@ class CatalogModel extends DB\SQL\Mapper
         return $arr;
     }
 
-    function sumPrice($basket) {
-        $sum = 0;
-        foreach($basket as $key=>$value){
-            $sum += intval($value['price']);
-        }
-        return $sum;
-    }
+    // function sumPrice($basket) {
+    //     $sum = 0;
+    //     foreach($basket as $key=>$value){
+    //         $sum += intval($value['price']);
+    //     }
+    //     return $sum;
+    // }
 }

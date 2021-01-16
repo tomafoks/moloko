@@ -20,7 +20,6 @@
                         <th class="sorting_asc">Цена</th>
                         <th class="sorting_asc">Кол-во на складе</th>
                         <th class="sorting_asc">Кол-во в корзине</th>
-                        <th class="sorting_asc">Изменить</th>
                         <th class="sorting_asc">Удалить</th>
                     </tr>
                     <tr role="row" class="odd">
@@ -34,15 +33,10 @@
                                 <th>{{ @i.description }}</th>
                                 <th>{{ @i.price }}</th>
                                 <th>{{ @i.stockBalance }}</th>
-                                <form id="change_num">
                                     <th>
-                                        <input type="number" name="quantity" id="" value="{{ @i.quantity }}">
-                                        <input hidden type="number" name="id" id="" value="{{ @i.id }}">
+                                        <input type="number" name="quantity" id="quantity" value="{{ @i.quantity }}" >
+                                        <!-- <input hidden type="number" name="id" id="idCatalog" value="{{ @i.id }}" oninput = "changeNum()"> -->
                                     </th>
-                                    <th>
-                                        <input type="submit" value="Изменить">
-                                    </th>
-                                </form>
                                 <th>
                                     <form action="/basket/del/{{ @i.id }}" method="post">
                                         <input type="submit" value="Удалить">
@@ -59,7 +53,7 @@
             </form>
             </br>
             <div>
-                <strong>Итого: {{ @sum }}</strong>
+                <strong id="sum">Итого: </strong>
             </div>
         </div>
     </div>

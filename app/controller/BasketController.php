@@ -8,9 +8,6 @@ class BasketController extends Controller
         //корзина пользователя
         $basket = $catalog->getBasket($res);
         $this->f3->set('basket', array($basket));
-        //итоговая стоимость
-        $sum = $catalog->sumPrice($basket);
-        $this->f3->set('sum', $sum);
         //рендерим в view
         $this->f3->set('view', 'template/basket.htm');
         echo \Template::instance()->render('layoutView.htm');
@@ -29,15 +26,13 @@ class BasketController extends Controller
 
     function edit()
     {
-        echo 123123;
-        // $id = $this->f3->get('PARAMS.id');
-        // $quantity = $this->f3->get('POST.quantity');
-        // $this->basket->load('idcatalog', $id);
-        // $this->basket->set('quantity', $quantity);
-        // $this->basket->save();
-        // $this->basket->reset();
+        $id = $this->f3->get('POST.id');
+        $quantity = $this->f3->get('POST.quantity');
+        $this->basket->load('idcatalog', $id);
+        $this->basket->set('quantity', $quantity);
+        $this->basket->save();
+        $this->basket->reset();
         // $this->f3->reroute('/basket');
-
     }
 
     function del()
